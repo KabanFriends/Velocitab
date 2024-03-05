@@ -134,17 +134,24 @@ public final class TabPlayer implements Comparable<TabPlayer> {
     }
 
     public CompletableFuture<Void> sendHeaderAndFooter(@NotNull PlayerTabList tabList) {
+        CompletableFuture<Void> future = new CompletableFuture<>();
+        future.complete(null);
+        return future;
+        /*
         return tabList.getHeader(this).thenCompose(header -> tabList.getFooter(this)
                 .thenAccept(footer -> {
                     lastHeader = header;
                     lastFooter = footer;
                     player.sendPlayerListHeaderAndFooter(header, footer);
                 }));
+        */
     }
 
     public void incrementIndexes() {
+        /*
         incrementHeaderIndex();
         incrementFooterIndex();
+        */
     }
 
     public void incrementHeaderIndex() {
