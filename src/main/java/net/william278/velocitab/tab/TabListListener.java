@@ -92,8 +92,8 @@ public class TabListListener {
             final Component displayName = tabPlayer.get().getLastDisplayName();
 
             plugin.getServer().getScheduler().buildTask(plugin, () -> {
-                if (header.equals(event.getPlayer().getPlayerListHeader()) && footer.equals(event.getPlayer().getPlayerListFooter())) {
-                    event.getPlayer().sendPlayerListHeaderAndFooter(header, footer);
+                //if (header.equals(event.getPlayer().getPlayerListHeader()) && footer.equals(event.getPlayer().getPlayerListFooter())) {
+                    //event.getPlayer().sendPlayerListHeaderAndFooter(header, footer);
                     event.getPlayer().getCurrentServer().ifPresent(serverConnection ->
                             serverConnection.getServer().getPlayersConnected().forEach(player ->
                                     player.getTabList().getEntry(joined.getUniqueId()).ifPresent(entry -> {
@@ -101,7 +101,7 @@ public class TabListListener {
                                             entry.setDisplayName(Component.text(joined.getUsername()));
                                         }
                                     })));
-                }
+                //}
             }).delay(500, TimeUnit.MILLISECONDS).schedule();
 
             tabList.getPlayers().remove(event.getPlayer().getUniqueId());
